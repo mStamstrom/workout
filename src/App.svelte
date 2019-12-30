@@ -1,6 +1,7 @@
 <script>
 	import StartupQuestions from './components/StartupQuestions.svelte';
 	import WeekConfiguration from './components/WeekConfiguration.svelte';
+	import WeekOverview from './components/WeekOverview.svelte';
 	import state from './store/StateStore';
 
 	// let state = '';
@@ -13,6 +14,8 @@
 		<StartupQuestions />
 	{:else if $state === 'weekConfiguration'}
 		<WeekConfiguration />
+	{:else if $state === 'weekStart'}
+		<WeekOverview />
 	{/if}
 </main>
 

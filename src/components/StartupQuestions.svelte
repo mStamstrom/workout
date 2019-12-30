@@ -1,21 +1,30 @@
 <script>
-  import { startupConfig } from '../store/ConfigurationStore';
+  import { workoutHistory } from '../store/ConfigurationStore';
+  import * as exercises from '../constants/exersices';
 
-  let squats = 0;
+  let backSquats = 0;
   let benchpress = 0;
-  let overheadPress = 0;
+  let pushPress = 0;
   let deadlift = 0;
   let bentRows = 0;
   let runningSpeed = 0;
 
   function saveStartupQuestions() {
-    startupConfig.set({
-      squats,
-      benchpress,
-      overheadPress,
-      deadlift,
-      bentRows,
-      runningSpeed
+    workoutHistory.update((workouts) => {
+      workouts.push({
+        week: 'start up week',
+        day: 'startup',
+        date: Date.now(),
+        exercises: [
+          {...exercises.backSquats, weight: backSquats},
+          {...exercises.benchpress, weight: benchpress},
+          {...exercises.bentRows, weight: bentRows},
+          {...exercises.pushPress, weight: pushPress},
+          {...exercises.deadlift, weight: deadlift},
+          {...exercises.runningSpeed},
+        ],
+      });
+      return workouts;
     });
   }
 </script>
@@ -23,14 +32,14 @@
 <main>
   <form on:submit|preventDefault={saveStartupQuestions}>
     <h2>These questions will get your first workload right</h2>
-    <label> How much can you lift for 10 squats?
-      <input bind:value={squats} />
+    <label> How much can you lift for 10 backSquats?
+      <input bind:value={backSquats} />
     </label>
     <label> How much can you lift on 10 benchpress?
       <input bind:value={benchpress} />
     </label>
     <label> How much can you lift on 10 overhead press?
-      <input bind:value={overheadPress} />
+      <input bind:value={pushPress} />
     </label>
     <label> How much can you lift on 10 deadlift?
       <input bind:value={deadlift} />

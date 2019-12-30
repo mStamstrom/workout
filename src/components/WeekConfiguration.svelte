@@ -1,11 +1,14 @@
 <script>
-  import createWeekSchedule from '../services/createWeekSchedule';
+  import { createWeekSchedule } from '../services/createWeekSchedule';
+  import { weekSchedule } from '../store/ConfigurationStore';
+
   let excersiseDays = 0;
   let includeRunning = false;
 
   function startWeek() {
     const schedule = createWeekSchedule(excersiseDays, includeRunning);
     console.log('schedule', schedule);
+    weekSchedule.set(schedule);
   }
 </script>
 

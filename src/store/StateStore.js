@@ -1,14 +1,14 @@
 import { writable } from 'svelte/store';
-import { startupConfig, weekSetup } from './ConfigurationStore';
+import { workoutHistory, weekSchedule } from './ConfigurationStore';
 
 const state = writable('configure');
 
-startupConfig.subscribe((x) => {
-  if (x) {
+workoutHistory.subscribe((workouts) => {
+  if (workouts && workouts.length > 0) {
     state.set('weekConfiguration');
   }
 });
-weekSetup.subscribe((x) => {
+weekSchedule.subscribe((x) => {
   if (x) {
     state.set('weekStart');
   }

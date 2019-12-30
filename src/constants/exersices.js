@@ -9,68 +9,93 @@ export const arms = 'arms';
 export const muscleGroups = [legs, lowerback, stomach, chest, shoulders, upperback, arms];
 
 export const backSquats = {
-  muscleGroups: [legs],
+  name: 'backSquats',
+  mainMuscleGroup: legs,
   type: 'strength',
+  weightType: 'barbell',
   order: 1,
 };
 export const deadlift = {
-  muscleGroups: [legs, lowerback],
+  name: 'deadlift',
+  mainMuscleGroup: lowerback,
   type: 'strength',
+  weightType: 'barbell',
   order: 1
 };
 export const benchpress = {
-  muscleGroups: [chest, arms],
+  name: 'benchpress',
+  mainMuscleGroup: chest,
   type: 'strength',
+  weightType: 'barbell',
   order: 2
 };
 export const bentRows = {
-  muscleGroups: [upperback, arms],
+  name: 'bentRows',
+  mainMuscleGroup: upperback,
   type: 'strength',
+  weightType: 'barbell',
   order: 3
 };
 export const pullups = {
-  muscleGroups: [upperback, arms],
+  name: 'pullups',
+  mainMuscleGroup: upperback,
   type: 'strength',
+  weightType: 'bodyWeight',
   order: 3
 };
 export const sumoLift = {
-  muscleGroups: [lowerback, upperback, arms],
+  name: 'sumoLift',
+  mainMuscleGroup: lowerback,
   type: 'strength',
+  weightType: 'barbell',
   order: 3
 };
 export const pushPress = {
-  muscleGroups: [shoulders, arms],
+  name: 'pushPress',
+  mainMuscleGroup: shoulders,
   type: 'strength',
+  weightType: 'barbell',
   order: 2
 };
 export const frontSquats = {
-  muscleGroups: [legs],
+  name: 'frontSquats',
+  mainMuscleGroup: legs,
   type: 'strength',
+  weightType: 'barbell',
   order: 2
 };
 export const plateTwists = {
-  muscleGroups: [stomach],
+  name: 'plateTwists',
+  mainMuscleGroup: stomach,
   type: 'strength',
+  weightType: 'freeWeights',
   order: 4
 };
 export const situps = {
-  muscleGroups: [stomach],
+  name: 'situps',
+  mainMuscleGroup: stomach,
   type: 'strength',
+  weightType: 'bodyWeight',
   order: 4
 };
 export const legRaises = {
-  muscleGroups: [stomach],
+  name: 'legRaises',
+  mainMuscleGroup: stomach,
   type: 'strength',
+  weightType: 'bodyWeight',
   order: 4
 };
 export const plateCocoons = {
-  muscleGroups: [stomach],
+  name: 'plateCocoons',
+  mainMuscleGroup: stomach,
   type: 'strength',
+  weightType: 'freeWeights',
   order: 4
 };
 export const running = {
+  name: 'running',
   order: 1,
   type: 'cardio',
 };
 
-export const exercies = [backSquats, deadlift, benchpress, pullups, bentRows, pushPress, sumoLift, frontSquats, plateTwists, situps, legRaises, plateCocoons, running];
+export const exercises = [backSquats, deadlift, benchpress, pullups, bentRows, pushPress, sumoLift, frontSquats, plateTwists, situps, legRaises, plateCocoons, running];

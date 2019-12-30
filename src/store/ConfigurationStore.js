@@ -7,6 +7,7 @@
  import { writable } from 'svelte/store';
 
  // change to custom stores
- export const startupConfig = writable();
+ // change to contain more than last workout
+ export const workoutHistory = writable([]);
 
  export const weekSchedule = writable();
