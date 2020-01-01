@@ -1,19 +1,24 @@
 import { createWeekSchedule } from './createWeekSchedule';
-import * as conf from '../store/ConfigurationStore';
-jest.mock('../store/ConfigurationStore');
+import * as confStore from '../store/ConfigurationStore';
+jest.mock('../store/ConfigurationStore', () => ({
+  workoutHistory: ({subscribe: (callback) => callback([
+      {"week":"start up week",
+      "day":"startup",
+      "date":1577873138296,
+      "exercises": [
+        {"name":"backSquats","mainMuscleGroup":"legs","type":"strength","weightType":"barbell","order":1,"weight":"50"},
+        {"name":"benchpress","mainMuscleGroup":"chest","type":"strength","weightType":"barbell","order":2,"weight":"50"},
+        {"name":"bentRows","mainMuscleGroup":"upperback","type":"strength","weightType":"barbell","order":3,"weight":"30"},
+        {"name":"pushPress","mainMuscleGroup":"shoulders","type":"strength","weightType":"barbell","order":2,"weight":"30"},
+        {"name":"deadlift","mainMuscleGroup":"lowerback","type":"strength","weightType":"barbell","order":1,"weight":"50"},
+        {"name":"running","order":1,"type":"cardio","speed":"20"}
+      ]}
+    ])
+  })
+}));
 
 describe('createWeekSchedule', () => {
-  let workoutCallback;
-  beforeEach(() => {
-    // conf.workoutHistory.mockReturnValue({})
-    conf.workoutHistory = {
-      subscribe: (callback) => callback({test: true}),
-    }
-    // console.log('workCallback', workoutCallback);
-    
-    // workoutCallback({});
-  });
-  fit('when creating schedule for 3 days should return exercise days', () => {
+  it('when creating schedule for 3 days should return exercise days', () => {
     expect(createWeekSchedule(3, false).length).toBe(3);
   });
   it('when creating schedule with cardio should include a cardio day', () => {

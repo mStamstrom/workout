@@ -21,7 +21,7 @@
           {...exercises.bentRows, weight: bentRows},
           {...exercises.pushPress, weight: pushPress},
           {...exercises.deadlift, weight: deadlift},
-          {...exercises.runningSpeed},
+          {...exercises.running, speed: runningSpeed},
         ],
       });
       return workouts;

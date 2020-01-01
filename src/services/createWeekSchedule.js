@@ -12,27 +12,36 @@ function setLatestWorkout(workouts) {
       if (exercise.weightType === 'barbell') {
         return {
           ...exercise,
-          weight: 30
+          weight: 30,
+          reps: 8,
+          rounds: 4,
         };
       } else if (exercise.weightType === 'freeWeights') {
         return {
           ...exercise,
-          weight: 15
+          weight: 15,
+          reps: 15,
+          rounds: 4,
         };
       } else if (exercise.weightType === 'bodyWeight') {
         return {
           ...exercise,
-          weight: 30
+          reps: 20,
+          rounds: 4,
         };
       } else if (exercise.type === 'cardio') {
         return {...exercise};
       }
     }
     const latestExercise = latestWorkout.exercises.find(x => x.name === exercise.name);
-    return latestExercise;
+    return {...latestExercise, 
+      reps: 8,
+      rounds: 4
+    };
   });
 }
 workoutHistory.subscribe(workouts => {
+  
   if (workouts && workouts.length > 0) {
     setLatestWorkout(workouts);
   }
