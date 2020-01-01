@@ -10,8 +10,7 @@
   let runningSpeed = 0;
 
   function saveStartupQuestions() {
-    workoutHistory.update((workouts) => {
-      workouts.push({
+    workoutHistory.update({
         week: 'start up week',
         day: 'startup',
         date: Date.now(),
@@ -24,8 +23,6 @@
           {...exercises.running, speed: runningSpeed},
         ],
       });
-      return workouts;
-    });
   }
 </script>
 
