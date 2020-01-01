@@ -5,7 +5,7 @@
  */
 
  import { writable } from 'svelte/store';
- import { getWorkoutHistory, setWorkoutHistory } from '../store/localStorage';
+ import { getWorkoutHistory, setWorkoutHistory, getSchedule, setSchedule } from '../store/localStorage';
 
   function setupWorkoutHistory() {
     const { update, subscribe} = writable(getWorkoutHistory());
@@ -20,7 +20,14 @@
  export const workoutHistory = setupWorkoutHistory();
 
 
-//  function createWeekSchedule() {
-//    const {set, subscribe} = writable();
-//  }
- export const weekSchedule = writable();
+ function setupWeekSchedule() {
+   const {set, subscribe} = writable(getSchedule());
+   return {
+    subscribe,
+    set: (schedule) => {
+      set(schedule);
+      setSchedule(schedule);
+    }
+   };
+ }
+ export const weekSchedule = setupWeekSchedule();

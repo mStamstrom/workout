@@ -2,7 +2,7 @@ const localStorageSchedule = 'workout-schedule';
 const localStorageHistory = 'workout-history';
 
 export function getSchedule() {
-  return JSON.parse(localStorage.getItem(localStorageSchedule) || '[]');
+  return JSON.parse(localStorage.getItem(localStorageSchedule));
 }
 
 export function getWorkoutHistory() {

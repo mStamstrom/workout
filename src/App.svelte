@@ -2,20 +2,24 @@
 	import StartupQuestions from './components/StartupQuestions.svelte';
 	import WeekConfiguration from './components/WeekConfiguration.svelte';
 	import WeekOverview from './components/WeekOverview.svelte';
+	import DayOverview from './components/DayOverview.svelte';
+	import Exercise from './components/Exercise.svelte';
 	import state from './store/StateStore';
+	import * as states from './constants/states';
 
-	// let state = '';
-	// stateStore.subscribe(x => state = x);
-	
 </script>
 
 <main>
-	{#if $state === 'configure'}
+	{#if $state === states.startup}
 		<StartupQuestions />
-	{:else if $state === 'weekConfiguration'}
+	{:else if $state === states.weekConfiguration}
 		<WeekConfiguration />
-	{:else if $state === 'weekStart'}
+	{:else if $state === states.weekOverview}
 		<WeekOverview />
+	{:else if $state === states.dayOverview}
+		<DayOverview />
+	{:else if $state === states.exercise}
+		<Exercise />
 	{/if}
 </main>
 
