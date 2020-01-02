@@ -7,8 +7,18 @@
     state.set(states.exercise);
     selectedExercise.set(exercise);
   }
+  
+  function goBack() {
+    state.set(states.weekOverview);
+  }
 </script>
-<h1>day {$selectedDay.day} overview</h1>
+
+<header>
+  <button on:click={goBack}>
+    back
+  </button>
+  <h1>Day {$selectedDay.day} overview</h1>
+</header>
 <section>
   {#each $selectedDay.exercises as exercise}
     <button on:click={setSelectedExercise(exercise)}>
@@ -16,3 +26,19 @@
     </button>
   {/each}
 </section>
+
+<style>
+  header {
+    display: flex;
+  }
+
+  h1 {
+    margin: auto;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

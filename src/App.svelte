@@ -7,6 +7,11 @@
 	import state from './store/StateStore';
 	import * as states from './constants/states';
 
+	/**
+	 * TODO: 
+	 * Add routing, https://medium.com/swlh/simple-svelte-3-app-with-router-44fe83c833b6
+	 * 
+	 */
 </script>
 
 <main>

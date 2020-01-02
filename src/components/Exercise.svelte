@@ -1,5 +1,8 @@
 <script>
   import {selectedExercise} from '../store/DayStore';
+  import state from '../store/StateStore';
+  import { dayOverview } from '../constants/states';
+
 
   let rounds = [];
   for (let i = 1; i <= $selectedExercise.rounds; i++) {
@@ -11,12 +14,18 @@
     }];
   };
 
+  function goBack() {
+    state.set(dayOverview);
+  }
+
 </script>
 
-<h1>Exercise {$selectedExercise.name}</h1>
-<button>
-  back
-</button>
+<header>
+  <button on:click={goBack}>
+    back
+  </button>
+  <h1>Exercise {$selectedExercise.name}</h1>
+</header>
 <section>
   {#each rounds as round}
     <button
@@ -30,6 +39,14 @@
   {/each}
 </section>
 <style>
+  header {
+    display: flex;
+  }
+
+  h1 {
+    margin: auto;
+  }
+
   .done {
     background-color: green;
   }
