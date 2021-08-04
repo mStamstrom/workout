@@ -13,6 +13,7 @@
       update: (workout) => update(workouts => {
         workouts.unshift(workout);
         setWorkoutHistory(workouts);
+        return workouts;
       }),
       subscribe,
     }

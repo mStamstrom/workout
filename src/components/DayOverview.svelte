@@ -21,7 +21,7 @@
 </header>
 <section>
   {#each $selectedDay.exercises as exercise}
-    <button on:click={setSelectedExercise(exercise)}>
+    <button class="exercise" on:click={setSelectedExercise(exercise)}>
       {exercise.name}
     </button>
   {/each}
@@ -36,9 +36,16 @@
     margin: auto;
   }
 
+  .exercise {
+    margin-top: 12px;
+    width: 100%;
+    height: 40px;
+  }
   section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    width: 400px;
   }
 </style>

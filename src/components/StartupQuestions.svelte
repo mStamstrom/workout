@@ -7,7 +7,6 @@
   let pushPress = 0;
   let deadlift = 0;
   let bentRows = 0;
-  let runningSpeed = 0;
 
   function saveStartupQuestions() {
     workoutHistory.update({
@@ -20,7 +19,6 @@
           {...exercises.bentRows, weight: bentRows},
           {...exercises.pushPress, weight: pushPress},
           {...exercises.deadlift, weight: deadlift},
-          {...exercises.running, speed: runningSpeed},
         ],
       });
   }
@@ -44,12 +42,24 @@
     <label> How much can you lift on 10 bent rows?
       <input bind:value={bentRows} />
     </label>
-    <label> How fast can you run 5 km?
-      <input bind:value={runningSpeed} />
-    </label>
     <button>Submit</button>
   </form>
 </main>
 
 <style>
+  form {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    text-align: left;
+  }
+  input {
+    float: right;
+  }
+  button {
+    margin-top: 40px;
+  }
 </style>

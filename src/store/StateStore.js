@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import { workoutHistory, weekSchedule } from './ConfigurationStore';
 import * as states from '../constants/states';
 
-const state = writable('configure');
+const state = writable(states.startup);
 
 workoutHistory.subscribe((workouts) => {
   if (workouts && workouts.length > 0) {
